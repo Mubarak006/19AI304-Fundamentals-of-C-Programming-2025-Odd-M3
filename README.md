@@ -262,6 +262,34 @@ Thus, the program was implemented and executed successfully, and the required ou
   Stop
 # Program:
 ```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char s[100];
+    int visited[256] = {0};
+    int i, j, count, n;
+
+    printf("Enter a string: ");
+    scanf("%[^\n]", s);
+
+    n = strlen(s);
+
+    for (i = 0; i < n; i++) {
+        if (visited[(unsigned char)s[i]] == 0) {
+            count = 0;
+            for (j = 0; j < n; j++) {
+                if (s[i] == s[j])
+                    count++;
+            }
+            printf("%c : %d\n", s[i], count);
+            visited[(unsigned char)s[i]] = 1;
+        }
+    }
+
+    return 0;
+}
+
 
 ```
 # Output:
